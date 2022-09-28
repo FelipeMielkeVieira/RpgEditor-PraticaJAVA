@@ -11,4 +11,8 @@ public class PersonagemController {
         PersonagemService service = new PersonagemService();
         return service.buscarListaPersonagens(codigoPessoa);
     }
+
+    public void cadastrarPersonagem() {
+
+    }
 }

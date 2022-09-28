@@ -4,6 +4,8 @@ import br.senai.sc.rpg.controller.PersonagemController;
 import br.senai.sc.rpg.model.entities.personagens.Personagem;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Collection;
 
 public class ListaItens extends JFrame {
@@ -19,6 +21,20 @@ public class ListaItens extends JFrame {
     public ListaItens(Integer botao) {
         lista = botao;
         criarComponentes();
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Menu menu = new Menu(Menu.getPessoa());
+                menu.setVisible(true);
+            }
+        });
+        cadastrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     private void criarComponentes() {

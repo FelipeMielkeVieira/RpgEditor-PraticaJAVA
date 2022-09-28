@@ -1,5 +1,8 @@
 package br.senai.sc.rpg.view;
 
+import br.senai.sc.rpg.model.entities.personagens.Guerreiro;
+import br.senai.sc.rpg.model.entities.personagens.Ladino;
+import br.senai.sc.rpg.model.entities.personagens.Mago;
 import br.senai.sc.rpg.model.entities.personagens.Personagem;
 
 import javax.swing.table.AbstractTableModel;
@@ -14,7 +17,7 @@ public class DefaultTableModelPersonagens extends AbstractTableModel {
 
     public DefaultTableModelPersonagens(Collection<Personagem> lista) {
         this.dados = new ArrayList<>(lista);
-        this.colunas = new String[]{"Nome", "Vida", "Mana", "Nível", "Sabedoria", "Inteligência", "Destreza", "Força", "Constituição", "Carisma"};
+        this.colunas = new String[]{"Nome", "Classe", "Vida", "Mana", "Nível", "Sabedoria", "Inteligência", "Destreza", "Força", "Constituição", "Carisma"};
     }
 
     @Override
@@ -39,30 +42,41 @@ public class DefaultTableModelPersonagens extends AbstractTableModel {
                 return personagem.getNome();
             }
             case 1 -> {
-                return personagem.getVida();
+                if (personagem instanceof Guerreiro) {
+                    return "Guerreiro";
+                } else if (personagem instanceof Ladino) {
+                    return "Ladino";
+                } else if (personagem instanceof Mago) {
+                    return "Mago";
+                } else {
+                    return "Paladino";
+                }
             }
             case 2 -> {
-                return personagem.getMana();
+                return personagem.getVida();
             }
             case 3 -> {
-                return personagem.getNivel();
+                return personagem.getMana();
             }
             case 4 -> {
-                return personagem.getSabedoria();
+                return personagem.getNivel();
             }
             case 5 -> {
-                return personagem.getInteligencia();
+                return personagem.getSabedoria();
             }
             case 6 -> {
-                return personagem.getDestreza();
+                return personagem.getInteligencia();
             }
             case 7 -> {
-                return personagem.getForca();
+                return personagem.getDestreza();
             }
             case 8 -> {
-                return personagem.getConstituicao();
+                return personagem.getForca();
             }
             case 9 -> {
+                return personagem.getConstituicao();
+            }
+            case 10 -> {
                 return personagem.getCarisma();
             }
             default -> {

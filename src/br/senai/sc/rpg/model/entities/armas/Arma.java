@@ -1,9 +1,12 @@
 package br.senai.sc.rpg.model.entities.armas;
 
+import java.util.ArrayList;
+
 public abstract class Arma {
 
-	private double danoMinimo, danoMaximo, valor;
-	private int codigo;
+	private Double danoMinimo, danoMaximo, valor;
+	private String nome;
+	private Integer codigo;
 	
 	@Override
 	public String toString() {
@@ -42,9 +45,19 @@ public abstract class Arma {
 		this.codigo = codigo;
 	}
 
-	public Arma() {
-		super();
+	public String getNome() {
+		return nome;
 	}
-	
-	
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Arma(Double danoMinimo, Double danoMaximo, Double valor, String nome, Integer codigo) {
+		this.danoMinimo = danoMinimo;
+		this.danoMaximo = danoMaximo;
+		this.valor = valor;
+		this.nome = nome;
+		this.codigo = codigo;
+	}
 }

@@ -55,7 +55,7 @@ public class PersonagemDAO {
                     resultSet.getInt("constituicao"),
                     resultSet.getInt("carisma"),
                     resultSet.getInt("nivel"),
-                    resultSet.getInt("classe"));
+                    resultSet.getString("classe"));
         } catch (Exception e) {
             throw new RuntimeException("Erro ao extrair objeto!");
         }

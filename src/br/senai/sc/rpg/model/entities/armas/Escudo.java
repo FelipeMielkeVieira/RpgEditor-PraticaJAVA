@@ -1,13 +1,12 @@
 package br.senai.sc.rpg.model.entities.armas;
 
-public class Escudo {
+public class Escudo extends Arma {
 
-	private double defesa, codigo;
+	private Double defesa;
 
-	public Escudo(double defesa, double codigo) {
-		super();
+	public Escudo(Double danoMinimo, Double danoMaximo, Double valor, String nome, Integer codigo, Double defesa) {
+		super(danoMinimo, danoMaximo, valor, nome, codigo);
 		this.defesa = defesa;
-		this.codigo = codigo;
 	}
 
 	@Override
@@ -22,14 +21,5 @@ public class Escudo {
 	public void setDefesa(double defesa) {
 		this.defesa = defesa;
 	}
-
-	public double getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(double codigo) {
-		this.codigo = codigo;
-	}
-	
 	
 }
