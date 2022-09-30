@@ -10,4 +10,8 @@ public class PersonagemService {
     public Collection<Personagem> buscarListaPersonagens(Integer codigoPessoa) {
         return new PersonagemDAO().buscarListaPersonagens(codigoPessoa);
     }
+
+    public void cadastrarPersonagem(Personagem personagem) {
+        new PersonagemDAO().cadastrarPersonagem(personagem);
+    }
 }

@@ -1,7 +1,5 @@
 package br.senai.sc.rpg.model.entities.armas;
 
-import java.util.ArrayList;
-
 public abstract class Arma {
 
 	private Double danoMinimo, danoMaximo, valor;

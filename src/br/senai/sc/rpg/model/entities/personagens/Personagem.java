@@ -1,5 +1,7 @@
 package br.senai.sc.rpg.model.entities.personagens;
 
+import br.senai.sc.rpg.model.factory.PersonagemFactory;
+
 public abstract class Personagem {
 
     private String nome;
@@ -104,6 +106,11 @@ public abstract class Personagem {
 
     public void setCarisma(int carisma) {
         this.carisma = carisma;
+    }
+
+    public static Personagem cadastrar(String nome, double vida, int sabedoria, int inteligencia, int destreza, int forca,
+                                       int constituicao, int carisma, Object classe) {
+        return new PersonagemFactory().getPersonagem(nome, vida, sabedoria, inteligencia, destreza, forca, constituicao, carisma, 1, classe.toString());
     }
 
 }

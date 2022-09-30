@@ -1,6 +1,8 @@
 package br.senai.sc.rpg.view;
 
+import br.senai.sc.rpg.controller.ArmaController;
 import br.senai.sc.rpg.controller.PersonagemController;
+import br.senai.sc.rpg.model.entities.armas.Arma;
 import br.senai.sc.rpg.model.entities.personagens.Personagem;
 
 import javax.swing.*;
@@ -32,7 +34,9 @@ public class ListaItens extends JFrame {
         cadastrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
+                CadastroPersonagem cadastroPersonagem = new CadastroPersonagem();
+                cadastroPersonagem.setVisible(true);
             }
         });
     }
@@ -52,11 +56,25 @@ public class ListaItens extends JFrame {
                 }
                 break;
             case 2:
-                tituloLista.setText("Lista de Campanhas");
+                try {
+                    tituloLista.setText("Lista de Campanhas");
+                } catch (Exception e) {
+                    avisoFalta.setVisible(true);
+                    avisoFalta.setText("Você não possui nenhuma campanha!");
+                }
                 break;
             case 3:
-                tituloLista.setText("Lista de Armas");
-                break;
+                try {
+                    tituloLista.setText("Lista de Armas");
+                    Collection<Arma> listaItens = new ArmaController().buscarLista();
+                    tabelaLista.setModel(new DefaultTableModelArmas(listaItens));
+                    tabelaLista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                    avisoFalta.setVisible(false);
+                    break;
+                } catch (Exception e) {
+                    avisoFalta.setVisible(true);
+                    avisoFalta.setText("Você não possui nenhuma arma!");
+                }
         }
 
         tabelaLista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

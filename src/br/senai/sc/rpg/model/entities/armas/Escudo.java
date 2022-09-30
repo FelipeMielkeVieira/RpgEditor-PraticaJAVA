@@ -4,9 +4,9 @@ public class Escudo extends Arma {
 
 	private Double defesa;
 
-	public Escudo(Double danoMinimo, Double danoMaximo, Double valor, String nome, Integer codigo, Double defesa) {
+	public Escudo(Double danoMinimo, Double danoMaximo, Double valor, String nome, Integer codigo) {
 		super(danoMinimo, danoMaximo, valor, nome, codigo);
-		this.defesa = defesa;
+		this.defesa = danoMaximo - danoMinimo;
 	}
 
 	@Override

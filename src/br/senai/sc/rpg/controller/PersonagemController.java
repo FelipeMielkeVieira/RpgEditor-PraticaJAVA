@@ -12,7 +12,10 @@ public class PersonagemController {
         return service.buscarListaPersonagens(codigoPessoa);
     }
 
-    public void cadastrarPersonagem() {
-
+    public void cadastrarPersonagem(String nome, double vida, int sabedoria, int inteligencia, int destreza, int forca,
+                                    int constituicao, int carisma, Object classe) {
+        Personagem personagem = Personagem.cadastrar(nome, vida, sabedoria, inteligencia, destreza, forca, constituicao, carisma, classe);
+        PersonagemService service = new PersonagemService();
+        service.cadastrarPersonagem(personagem);
     }
 }
